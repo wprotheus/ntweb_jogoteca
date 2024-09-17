@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="cadastros">
+        <div class="col-12 justify-content-center form-auth">
+            <div class="container-form">
+                <hr>
+                <h1 class="text-center">Lista de JOGOS</h1>
+                <hr>
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="table-responsive border rounded shadow">
+                            <table class="table table-hover">
+                                <thead class="table-primary">
+                                <tr>
+                                    <th>Título</th>
+                                    <th>Plataforma</th>
+                                    <th>Categoria</th>
+                                    <th>Descrição</th>
+                                    <th>Avaliação</th>
+                                    <th>Preço</th>
+                                    <th>Editar</th>
+                                    <th>Deletar</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for j in jogos %}
+                                    <tr>
+                                        <td>{{ j.title }}</td>
+                                        <td>{{ j.platform }}</td>
+                                        <td>{{ j.category }}</td>
+                                        <td>{{ j.description }}</td>
+                                        <td>{{ j.rating }}</td>
+                                        <td>{{ j.price }}</td>
+                                        <td>
+                                            <a href="{{ url_for('editaAtualizaJogo', id=j.id) }}"
+                                               class="btn btn-primary btn-sm">Editar</a>
+                                        </td>
+                                        <td>
+                                            <form action="{{ url_for('deletarJogoId', id=j.id) }}" method="post"
+                                                  style="display:inline-block;">
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                        onclick="return confirm('Tem certeza que deseja deletar este jogo?');">
+                                                    Deletar
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

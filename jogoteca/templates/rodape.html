@@ -1,0 +1,9 @@
+<link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet">
+<footer class="copyrightText footer navbar-fixed-bottom">
+    <p>&copy; Olimpus - <b><span id="ano"></span></b> - Palmas-TO</p>
+</footer>
+<script>
+    const d = new Date();
+    let year = d.getUTCFullYear();
+    document.getElementById("ano").innerHTML = year;
+</script>

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="cadastros">
+        <div class="col-md-12 justify-content-center form-auth">
+            <div class="container-form">
+                <hr>
+                <h1 class="text-logo">Cadastro Jogo</h1>
+                <hr>
+                <form class="form mt-2 p-4 align-left border shadow rounded" method="post">
+                    {{ form.hidden_tag() }}
+                    {{ form.csrf_token }}
+                    <div class="row">
+                        <div class="col">
+                            {{ form.title.label }}
+                            {{ form.title(class='form-control') }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.platform.label }}
+                            {{ form.platform(class='form-control') }}
+                        </div>
+                        <div class="col">
+                            {{ form.category.label }}
+                            {{ form.category(class='form-control') }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.description.label }}
+                            {{ form.description(class='form-control') }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ form.rating.label }}
+                            {{ form.rating(class='form-control') }}
+                        </div>
+                        <div class="col">
+                            {{ form.price.label }}
+                            {{ form.price(class='form-control') }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row justify-content-end">
+                        <div class="col-4">
+                            {{ form.submit(class='btn btn-primary col-12') }}
+                        </div>
+                    </div>
+                </form>
+                {% if messages %}
+                    <br>
+                    {% for message in messages %}
+                        <section class="alert {{ message.tags }}">
+                            {{ message }}
+                        </section>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

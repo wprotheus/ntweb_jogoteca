@@ -1,0 +1,59 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: url("../img/abg.jpeg") center center no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.container-fluid {
+    flex: 1;
+}
+
+footer {
+    display: block;
+    text-align: center;
+    font-weight: bolder;
+    background-color: transparent;
+    color: navy;
+    position: relative;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Aumenta a largura do dropdown */
+.dropdown-large {
+    width: 400px;
+    font-size: larger;
+}
+
+.dropdown-large .btn-success {
+    width: 100px; /* Ajuste conforme necessário */
+    /*padding: 0.375rem 0.75rem;*/
+    margin-top: 3%;
+    height: fit-content;
+}
+
+.olimpus {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.olimpus::before {
+    content: '';
+    background-image: url('../img/olympus.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 80vw;
+    height: 80vh;
+    display: block;
+}

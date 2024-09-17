@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="cadastros">
+        <div class="col-md-12 justify-content-center form-auth">
+            <div class="container-form usuarios">
+                <hr>
+                <h1 class="text-center mb-4">Lista de Usuários</h1>
+                <hr>
+                <div class="table-responsive border rounded shadow">
+                    <table class="table table-hover">
+                        <thead class="table-primary">
+                        <tr>
+                            <th>Usuário</th>
+                            <th>E-mail</th>
+                            <th>Editar</th>
+                            <th>Deletar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for u in usuarios %}
+                            <tr>
+                                <td>{{ u.username }}</td>
+                                <td>{{ u.email }}</td>
+                                <td>
+                                    <a href="{{ url_for('editaAtualizaUsuario', id=u.id) }}"
+                                       class="btn btn-primary btn-sm">Editar</a>
+                                </td>
+                                <td>
+                                    <form action="{{ url_for('deletarUsuarioId', id=u.id) }}" method="post"
+                                          style="display:inline-block;">
+                                        <button type="submit" class="btn btn-danger btn-sm"
+                                                onclick="return confirm('Tem certeza que deseja deletar este usuário?');">
+                                            Deletar
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

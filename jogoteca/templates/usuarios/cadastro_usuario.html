@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="cadastros">
+        <div class="col-md-12 justify-content-center form-auth">
+            <div class="container-form usuarios">
+                <hr>
+                <h1 class="text-logo text-center">Cadastre-se</h1>
+                <hr>
+                <form class="form mt-2 p-4 align-left border shadow rounded" method="post">
+                    {{ form.hidden_tag() }}
+                    {{ form.csrf_token }}
+                    <div class="col">
+                        {{ form.username.label }}
+                        {{ form.username(class='form-control input-pers') }}
+                    </div>
+
+                    <div class="col">
+                        {{ form.password.label }}
+                        {{ form.password(class='form-control input-pers') }}
+                    </div>
+
+                    <div class="col">
+                        {{ form.password_again.label }}
+                        {{ form.password_again(class='form-control input-pers') }}
+                    </div>
+
+                    <div class="col">
+                        {{ form.email.label }}
+                        {{ form.email(class='form-control input-pers') }}
+                    </div>
+                    <hr>
+                    <div class="row justify-content-end">
+                        <div class="col-4">
+                            {{ form.submit(class='btn btn-primary col-12') }}
+                        </div>
+                    </div>
+                </form>
+                {% if messages %}
+                    <br>
+                    {% for message in messages %}
+                        <section class="alert {{ message.tags }}">
+                            {{ message }}
+                        </section>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
